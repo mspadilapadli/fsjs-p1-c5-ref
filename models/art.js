@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
 
         static async notif() {
             try {
-                let { totalData, maxDate, minDate } = await Art.findOne({
+                let data = await Art.findOne({
                     attributes: [
                         [
                             sequelize.fn("COUNT", sequelize.col("id")),
@@ -52,11 +52,7 @@ module.exports = (sequelize, DataTypes) => {
                     raw: true, // agar hasilnya object biasa,bukan instance sequelize
                 });
 
-                return {
-                    totalData,
-                    maxDate,
-                    minDate,
-                };
+                return data;
             } catch (error) {
                 throw error;
             }

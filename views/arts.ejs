@@ -23,10 +23,12 @@
          <form action="/" method="get" class="w-100">
             <div class="row g-2">
                <div class="col-12 col-md-5">
-                  <input class="form-control" type="search" placeholder="Search by name" name="qArtName">
+                  <input class="form-control" type="search" placeholder="Search by name" name="qArtName"
+                     value="<%= qArtName || "" %>">
                </div>
                <div class="col-12 col-md-5">
-                  <input class="form-control" type="search" placeholder="Search by artist" name="qArtist">
+                  <input class="form-control" type="search" placeholder="Search by artist" name="qArtist"
+                     value="<%= qArtist  %>">
                </div>
                <div class="col-12 col-md-2">
                   <button class="btn btn-primary w-100" type="submit">

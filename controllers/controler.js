@@ -12,6 +12,8 @@ class Controller {
                 minDate,
                 minDate: new Date(minDate).getFullYear(),
                 maxDate: new Date(maxDate).getFullYear(),
+                qArtName,
+                qArtist,
             });
         } catch (error) {
             console.log(error.message);
