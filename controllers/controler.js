@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const { Art } = require("../models");
 class Controller {
     static async readArts(req, res) {
@@ -82,6 +83,25 @@ class Controller {
             //     where: { id },
             // });
             // if (!update) throw "Data not found, Plese check your input";
+
+            res.redirect("/");
+        } catch (error) {
+            res.send(error);
+        }
+    }
+
+    static async deleteArt(req, res) {
+        try {
+            const { id } = req.params;
+
+            //* with instace method del
+            // const foundData = await Art.findByPk(id);
+            // if (!foundData) throw "Data not found, Please check your input";
+            // await foundData.destroy();
+
+            //* with static method
+            const del = await Art.destroy({ where: { id } });
+            if (!del) throw "Data not found, Please check your input";
 
             res.redirect("/");
         } catch (error) {
