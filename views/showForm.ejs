@@ -48,7 +48,7 @@
                   <% } %>
             </label>
             <input type="date" class="form-control <%= error.date ? 'is-invalid' : '' %>" name="date"
-               value="<%= art?.date || '' %>">
+               value="<%= art?.formatDate || '' %>">
          </div>
 
          <div class="mb-3">

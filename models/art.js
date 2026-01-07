@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
                 throw error;
             }
         }
+        //getter
+        get formatDate() {
+            return new Date(this.date).toISOString().split("T")[0];
+        }
     }
     Art.init(
         {

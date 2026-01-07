@@ -44,6 +44,16 @@ class Controller {
             res.send(error);
         }
     }
+    static async showDetail(req, res) {
+        try {
+            const { id } = req.params;
+            const art = await Art.findByPk(id);
+            // res.send(art);
+            res.render("detail-art", { art });
+        } catch (error) {
+            res.send(error);
+        }
+    }
 }
 
 module.exports = Controller;

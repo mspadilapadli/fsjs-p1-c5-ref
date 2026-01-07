@@ -8,6 +8,6 @@ router.post("/arts/add", Controller.postAdd);
 // router.get("/arts/edit/:id", Controller.getFormAddoUpdate);
 // router.post("/arts/edit/:id");
 // router.get("/arts/delete/:id");
-// router.get("/arts/:id");
+router.get("/arts/:id", Controller.showDetail);
 
 module.exports = router;
