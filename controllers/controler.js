@@ -1,9 +1,9 @@
-const { where } = require("sequelize");
 const { Art } = require("../models");
 class Controller {
     static async readArts(req, res) {
         try {
-            const data = await Art.findAll();
+            const { qArtName, qArtist } = req.query;
+            const data = await Art.getArts(qArtName, qArtist);
             res.render("arts", { data });
         } catch (error) {
             console.log(error.message);

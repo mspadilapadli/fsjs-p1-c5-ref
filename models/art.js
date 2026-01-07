@@ -1,5 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
+const { Op } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
     class Art extends Model {
         /**
@@ -11,9 +13,22 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
         }
 
-        static async getArts() {
+        static async getArts(qArtName, qArtist) {
             try {
-                return await Art.findAll();
+                const where = {};
+                if (qArtName)
+                    where.name = {
+                        [Op.iLike]: `%${qArtName}%`,
+                    };
+                if (qArtist)
+                    where.artist = {
+                        [Op.iLike]: `%${qArtist}%`,
+                    };
+                const option = {
+                    where,
+                    order: [["date", "desc"]],
+                };
+                return await Art.findAll(option);
             } catch (error) {
                 throw error;
             }
