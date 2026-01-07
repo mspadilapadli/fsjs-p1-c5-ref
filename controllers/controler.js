@@ -4,7 +4,15 @@ class Controller {
         try {
             const { qArtName, qArtist } = req.query;
             const data = await Art.getArts(qArtName, qArtist);
-            res.render("arts", { data });
+            let { totalData, maxDate, minDate } = await Art.notif();
+
+            res.render("arts", {
+                data,
+                totalData,
+                minDate,
+                minDate: new Date(minDate).getFullYear(),
+                maxDate: new Date(maxDate).getFullYear(),
+            });
         } catch (error) {
             console.log(error.message);
         }
@@ -24,8 +32,7 @@ class Controller {
             }
             res.render("showForm", { art, action, error: {}, isEdit });
         } catch (error) {
-            console.log(error);
-            // res.send(error);
+            res.send(error);
         }
     }
 

@@ -37,6 +37,30 @@ module.exports = (sequelize, DataTypes) => {
         get formatDate() {
             return new Date(this.date).toISOString().split("T")[0];
         }
+
+        static async notif() {
+            try {
+                let { totalData, maxDate, minDate } = await Art.findOne({
+                    attributes: [
+                        [
+                            sequelize.fn("COUNT", sequelize.col("id")),
+                            "totalData",
+                        ],
+                        [sequelize.fn("MAX", sequelize.col("date")), "maxDate"],
+                        [sequelize.fn("MIN", sequelize.col("date")), "minDate"],
+                    ],
+                    raw: true, // agar hasilnya object biasa,bukan instance sequelize
+                });
+
+                return {
+                    totalData,
+                    maxDate,
+                    minDate,
+                };
+            } catch (error) {
+                throw error;
+            }
+        }
     }
     Art.init(
         {
