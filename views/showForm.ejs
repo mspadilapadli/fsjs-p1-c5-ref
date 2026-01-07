@@ -13,35 +13,35 @@
 
 <body>
    <div class="container">
-      <h5>
-         <%=action%>, <%=isEdit%>
-      </h5>
 
       <form action="<%=action%>" method="post">
 
-         <div class="mb-3">
-            <label>Art Name
-               <% if (error.name) { %>
-                  <small class="text-danger ">
-                     <%= error.name %>
-                  </small>
-                  <% } %>
-            </label>
-            <input type="text" class="form-control <%=error.name ? " is-invalid" : "" %>" name="name"
-            value="<%=art.name || "" %>">
+         <div class="row">
+            <div class=" col mb-3">
+               <label>Art Name
+                  <% if (error.name) { %>
+                     <small class="text-danger ">
+                        <%= error.name %>
+                     </small>
+                     <% } %>
+               </label>
+               <input type="text" class="form-control <%=error.name ? " is-invalid" : "" %>" name="name"
+               value="<%=art.name || "" %>">
+            </div>
+
+            <div class=" col mb-3">
+               <label>Artist Name
+                  <% if (error.artist) { %>
+                     <small class="text-danger ">
+                        <%= error.artist %>
+                     </small>
+                     <% } %>
+               </label>
+               <input type="text" class="form-control <%=error.artist ? " is-invalid" : "" %>" name="artist"
+               value="<%=art.artist || "" %>">
+            </div>
          </div>
 
-         <div class="mb-3">
-            <label>Artist Name
-               <% if (error.artist) { %>
-                  <small class="text-danger ">
-                     <%= error.artist %>
-                  </small>
-                  <% } %>
-            </label>
-            <input type="text" class="form-control <%=error.artist ? " is-invalid" : "" %>" name="artist"
-            value="<%=art.artist || "" %>">
-         </div>
 
          <div class="mb-3">
             <label>Created date
