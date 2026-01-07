@@ -15,7 +15,7 @@
    <div class="container">
 
       <div class="my-3 ">
-         <a href="/shirts/add" class="btn btn-success">Add Arts</a>
+         <a href="/arts/add" class="btn btn-success">Add Arts</a>
       </div>
 
       <nav class="navbar navbar-light bg-light">
@@ -55,8 +55,9 @@
                      </p>
                      <!-- 🆕 tombol selalu di bawah & sejajar -->
                      <div class="d-flex gap-2 mt-auto">
-                        <a href="/arts/<%= e.id %>" class="btn btn-outline-info">See Detail</a>
-                        <a href="/arts/<%= e.id %>/delete" class="btn btn-outline-danger">Delete</a>
+                        <a href="/arts/<%= e.id %>" class="btn btn-info">See Detail</a>
+                        <a href="/arts/edit/<%= e.id %>" class="btn btn-warning">Edit</a>
+                        <a href="/arts/<%= e.id %>/delete" class="btn btn-danger">Delete</a>
                      </div>
 
                   </div>
